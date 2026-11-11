@@ -1,0 +1,27 @@
+{
+  "name": "MiniMax-H3-30s",
+  "slug": "autodl-minimax-h3-30s",
+  "port": 6006,
+  "comfyui": {"repository":"Comfy-Org/ComfyUI","revision":"7c4390a6f70cd8eb41014d6af52969397a752fc4"},
+  "t8": {"repository":"T8mars/comfyui-minimax-h3-audio-T8","revision":"ee569dab831cf0d14bf8578215c7250874fad2f6","version":"1.105.0"},
+  "model_repository": "Comfy-Org/MiniMax-H3",
+  "model_revision": "54472221d27c695fca9621b0c3ed52f06c4af707",
+  "models": [
+    {"path":"diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors","bytes":20970379616,"sha256":"e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a","modelscope_revision":"02d0e736e1112426c30683e0ed8fd7182a4e5d6d"},
+    {"path":"text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors","bytes":15687142551,"sha256":"35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6","modelscope_revision":"160418ce87d04db418a33a0dbe904d5a2d774e3f"},
+    {"path":"vae/minimax_h3_video_vae_fp16.safetensors","bytes":5207808496,"sha256":"7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522","modelscope_revision":"76fce18cb387285747955c88756974596c9a5bb8"},
+    {"path":"vae/minimax_h3_audio_vae_fp32.safetensors","bytes":605254808,"sha256":"8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48","modelscope_revision":"dcdcca14e93e72d8cba0b6312771cf0779e85cc1"}
+  ],
+  "duration_seconds":30,
+  "fps":24,
+  "render_window_frames":124,
+  "context_frames":22,
+  "steps":20,
+  "width":736,
+  "height":416,
+  "existing_15s_image":"image-c007376968",
+  "existing_15s_community_url":"https://www.autodl.art/i/zw2029181901/autodl-minimax-h3-comfyui/MiniMax-H3-ComfyUI",
+  "modify_existing_15s":false,
+  "validation":"passed",
+  "published":false
+}

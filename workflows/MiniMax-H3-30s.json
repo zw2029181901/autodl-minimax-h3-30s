@@ -1,0 +1,460 @@
+{
+  "id": "373dc5da-b327-4e9f-9582-02f6d5928675",
+  "revision": 0,
+  "last_node_id": 9,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "title": "MiniMax H3 主模型",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        360,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPLoader",
+      "title": "Qwen3-VL 提示词编码器",
+      "pos": [
+        0,
+        150
+      ],
+      "size": [
+        360,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "title": "H3 视频解码器",
+      "pos": [
+        0,
+        310
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "VAELoader",
+      "title": "H3 音频解码器",
+      "pos": [
+        0,
+        420
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "MiniMaxH3LongVideoInNodeLoopT8Advanced",
+      "title": "MiniMax-H3 · 30秒有声视频",
+      "pos": [
+        880,
+        0
+      ],
+      "size": [
+        690,
+        960
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "video_vae",
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 5
+        },
+        {
+          "name": "drive_audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "final_audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "first_frame",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "last_frame",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "persistent_identity_image",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        },
+        {
+          "name": "video_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "manifest_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "completed_segments",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "status",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "report_json",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LongVideoInNodeLoopT8Advanced"
+      },
+      "widgets_values": [
+        "h3_30s_first_run",
+        30,
+        736,
+        416,
+        124,
+        22,
+        "A continuous cinematic medium shot of a small red fox walking slowly through a peaceful green woodland. The same fox, soft morning light and steady camera throughout. Natural birdsong, quiet breeze and gentle footsteps. No cuts, no speech, no music.",
+        "",
+        123456789,
+        "increment",
+        20,
+        12,
+        3,
+        "dual_clock_euler",
+        "native_flow",
+        "auto",
+        "video_and_audio",
+        "native",
+        0.35,
+        true,
+        0,
+        true,
+        "match",
+        "official_2_to_15s",
+        "segment0_only",
+        "single_reference",
+        1,
+        true,
+        "MiniMax-H3-30s",
+        "cosine_bridge",
+        5,
+        8,
+        18,
+        "minimax_h3_fl2va_pruned_int8_convrot-native20"
+      ],
+      "color": "#4f3a71",
+      "bgcolor": "#291f3b"
+    },
+    {
+      "id": 7,
+      "type": "MarkdownNote",
+      "title": "使用方法",
+      "pos": [
+        1640,
+        0
+      ],
+      "size": [
+        560,
+        250
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "# MiniMax-H3-30s\n独立30秒版本，旧15秒应用保留。填写画面与声音提示词，点击运行，等待30秒有声视频生成。默认736×416、24FPS、20步。采用短窗口续接；人物与声音可能漂移。"
+      ],
+      "color": "#214d35",
+      "bgcolor": "#12281d"
+    },
+    {
+      "id": 8,
+      "type": "MarkdownNote",
+      "title": "任务与续跑",
+      "pos": [
+        1640,
+        300
+      ],
+      "size": [
+        560,
+        280
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "修改提示词、种子或尺寸后，请换一个新的chain_id（任务名）。保持原参数和任务名可从已完成片段继续。"
+      ],
+      "color": "#604b1d",
+      "bgcolor": "#332810"
+    },
+    {
+      "id": 9,
+      "type": "MarkdownNote",
+      "title": "生成与存储",
+      "pos": [
+        1640,
+        630
+      ],
+      "size": [
+        560,
+        330
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "默认30秒=720帧，通过7个短窗口续接，20步原生采样，不需要Turbo LoRA。权重使用公共挂载；没有公共挂载时下载到数据盘。生成结果与分段缓存保存在数据盘，释放实例前请下载。"
+      ],
+      "color": "#6b3030",
+      "bgcolor": "#371919"
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      1,
+      "CLIP"
+    ],
+    [
+      4,
+      4,
+      0,
+      6,
+      2,
+      "VAE"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      3,
+      "VAE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "MiniMax H3 模型",
+      "bounding": [
+        -40,
+        -70,
+        890,
+        610
+      ],
+      "color": "#3f789e",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "30秒视频生成",
+      "bounding": [
+        840,
+        -70,
+        780,
+        1080
+      ],
+      "color": "#704c91",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "使用说明",
+      "bounding": [
+        1600,
+        -70,
+        650,
+        1080
+      ],
+      "color": "#8b6b32",
+      "font_size": 26,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.64,
+      "offset": [
+        70,
+        140
+      ]
+    },
+    "ue_links": [],
+    "t8_long_video_state": "in_node_loop_v1",
+    "research_provenance": {
+      "source_repository": "https://github.com/T8mars/comfyui-minimax-h3-audio-T8",
+      "source_commit": "ee569dab831cf0d14bf8578215c7250874fad2f6",
+      "source_path": "examples/workflows/04-long-video/2026-08-27_H3_In_Node_Long_Video_Loop_Turbo4_Advanced_EXP.json",
+      "modified_by": "Codex",
+      "date": "2026-11-12",
+      "gpu_validated": true,
+      "changes": [
+        "Removed Turbo4 LoRA node; connected UNET directly to long-video loop",
+        "Changed steps from 4 to 20",
+        "Changed chain_id and model_id",
+        "Added usage note"
+      ]
+    }
+  },
+  "version": 0.4
+}

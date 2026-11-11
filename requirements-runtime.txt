@@ -1,0 +1,27 @@
+# torch/torchvision use the exact CUDA13.0 base image.
+# torchaudio 2.11.0+cu130 is bundled from the copied image and checked by actual resampling.
+comfyui-frontend-package==1.57.6
+comfy-kitchen==0.2.40
+comfy-aimdo==0.6.0
+torchsde
+einops
+transformers==4.57.1
+sentencepiece
+safetensors
+aiohttp>=3.11.8
+yarl>=1.18.0
+pyyaml
+Pillow>=10.1.0
+scipy
+alembic
+SQLAlchemy>=2.0.0
+av==17.0.0
+simpleeval>=1.0.0
+blake3
+kornia>=0.7.1
+spandrel
+pydantic~=2.0
+pydantic-settings~=2.0
+opencv-python-headless==4.11.0.86
+imageio
+imageio-ffmpeg==0.6.0

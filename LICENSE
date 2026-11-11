@@ -1,0 +1,8 @@
+SPDX-License-Identifier: GPL-3.0-or-later
+
+The workflow adaptation and application integration are distributed under the
+GNU General Public License, version 3 or any later version. A full copy is in
+licenses/ComfyUI-GPL-3.0.txt. Upstream notices are retained in licenses/.
+
+Model weights retain their separate licenses, including the MiniMax H3
+Community License and the Qwen encoder's applicable license.

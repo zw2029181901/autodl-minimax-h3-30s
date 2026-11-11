@@ -1,0 +1,28 @@
+SPDX-License-Identifier: GPL-3.0-or-later
+
+Copyright (C) 2026 MiniMax H3 Audio T8 contributors
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See <https://www.gnu.org/licenses/gpl-3.0.html> for the full
+license text. The containing ComfyUI distribution also includes a copy of GPLv3.
+
+Source repository: https://github.com/T8mars/comfyui-minimax-h3-audio-T8
+Source commit: ee569dab831cf0d14bf8578215c7250874fad2f6
+Source workflow: examples/workflows/04-long-video/2026-08-27_H3_In_Node_Long_Video_Loop_Turbo4_Advanced_EXP.json
+
+MiniMax-H3-T8-30s-Turbo4-upstream-EXP.json is a reformatted source snapshot.
+
+MiniMax-H3-T8-30s-Native20-candidate.json was modified by Codex on 2026-11-12:
+- Removed the Turbo4 LoRA node and connected the UNET directly to the loop.
+- Changed steps from 4 to 20 and changed chain_id/model_id.
+- Added an explanatory note and provenance metadata.
+The modified candidate has not been validated by GPU generation.
+
+The model weights have their separate MiniMax H3 Community License and are not
+included in this directory.
