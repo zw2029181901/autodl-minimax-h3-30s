@@ -43,5 +43,10 @@
   "image_name": "MiniMax-H3-30s-v1",
   "image_uuid": "image-82df0f6fce",
   "image_size_gb": 0.56,
-  "community_status": "not_submitted"
+  "community_status": "review_pending",
+  "community_submitted_at": "2026-11-12T02:42:25.613866+08:00",
+  "community_url": "https://www.autodl.art/i/zw2029181901/autodl-minimax-h3-30s/MiniMax-H3-30s",
+  "github_url": "https://github.com/zw2029181901/autodl-minimax-h3-30s",
+  "publicly_published": false,
+  "test_instance_state": "powered_off"
 }
